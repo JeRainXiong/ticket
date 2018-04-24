@@ -10,7 +10,7 @@
       <div style="margin: 10px;font-size: 13px;color: #333333;line-height: 13px;"><a href="/">首页</a>&nbsp;&gt;&nbsp;用户中心&nbsp;&gt;&nbsp;订单详情</div>
       <!--导航栏-->
         <ul class="order_nav" id="order_nav_container">
-            <li class="active"><a href="/account/order" class="active"> 我的订单<span class="nav_count active" id="nav_order_count">1个</span><br><i class="icon-c icon-c-myorder-hover"></i><br><b></b></a></li>
+            <li class="active"><a href="/account/order" class="active"> 我的订单<br><i class="icon-c icon-c-myorder-hover"></i><br><b></b></a></li>
         </ul>
        <!--订单详情-->
       <div style="width:919px;float: right;margin-left: 20px;background: #fff;min-height: 600px;">
@@ -54,11 +54,12 @@
                
                 <div class="orderDet_msg_controll">
                 <p style="width: 100%;display: block" class="clearfix">
+                 <?php if($order['order_state']==0) {?>
                     <a class="cancel_btn" onclick="$('#cancelOrder_component').show()">取消订单</a>
                         
                         
                             <a style="margin-bottom: 10px;" class="pay_btn" href="/buy/pay?order_id=<?php echo $order['order_id'];?>">立即支付</a>
-                        
+                  <?php } ?>
                     
                 </p>
                 <!-- <p id="payReserveTimeTag" style="font-size: 13px; color: rgb(0, 0, 0); margin-left: 30px;"><span style="color: rgb(233, 71, 77);font-weight: bold;font-size: 14px;" id="payReserveTime">5:38</span>后将自动取消</p> -->
@@ -79,6 +80,8 @@
                       <li>票价：￥ <?php echo $order['ticket_type']['unit_price'];?> x 1张</li>
                       <li>时间：<?php echo $concert['concert_time'];?></li>
                       <li>场馆：<?php echo $concert['concert_addr'];?></li>
+
+                      
                       <li>来源：
                         <div class="certificate-container"><div class="certi_icon_box"><div class="ok_icon">&nbsp;</div><i></i> <div class="text" id="show-certificate">资质认证</div></div></div>
                       </li>
@@ -94,9 +97,9 @@
                     <ul style="line-height: 18px;margin-left: 64px;line-height:22px; padding-bottom:10px;border-bottom: 1.5px  dotted #E5E7ED">
                         <li> <span class="orderDet_addr_title">配送方式：</span>电子票</li>
                         <li> <span class="orderDet_addr_title">电子票：</span>
-                           
+                         <?php if($order['order_state']==1) {?>   
                           <a style="margin-bottom: 10px;" class="order_btn order_btn_pay" href="ticket/showticket?ticket_id=<?php echo $order['ticket_id'];?>">显示电子票</a>
-         
+                        <?php } ?>
                         </li>
 
                       </ul>

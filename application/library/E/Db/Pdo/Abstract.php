@@ -3,8 +3,6 @@
 /**
  * Pdo 抽象类
  * 
- * @author soft456<soft456@gmail.com>
- * @modify 2016-05-24
  */
 abstract class E_Db_Pdo_Abstract extends E_Db_Abstract {
 

@@ -3,7 +3,6 @@
 /**
  * Base Model
  * 
- * @author soft456<soft456@gmail.com>
  */
 abstract class M_Base {
 
@@ -107,7 +106,7 @@ abstract class M_Base {
         is_null($col) && ($col = $this->_pk);
         is_null($table) && ($table = $this->_table);
 
-        $sql = "SELECT `{$fieldList}` FROM `{$table}` WHERE {$col} = ?";
+        $sql = "SELECT {$fieldList} FROM `{$table}` WHERE {$col} = ?";
 
         $result = $this->db->prepareRow($sql, $id);
         return $result ? $result : FALSE;

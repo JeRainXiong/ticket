@@ -15,7 +15,7 @@ class Bootstrap extends Yaf_Bootstrap_Abstract {
     }
 
     /**
-     * [默认视图类(报错已用)]
+     * 
      * @param  Yaf_Dispatcher $dispatcher [description]
      * @return [type]                     [description]
      */

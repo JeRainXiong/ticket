@@ -3,7 +3,6 @@
 /**
  * Request 常用工具
  * 
- * @author soft456<soft456@gmail.com>
  */
 class E_Request {
 

@@ -86,9 +86,9 @@
         <div class="order_item_right">           
            
                 
-                    
+                    <?php if($order['order_state']==0) {?>
                         <p><a class="order_btn order_btn_pay" href="/buy/pay?order_id=<?php echo $order['order_id'];?>">立即支付</a></p>
-                     
+                     <?php } ?>
                 
             
             <a class="order_btn order_btn_detail" target="_blank" href="account/orderdetail?order_id=<?php echo $order['order_id'];?>">订单详情</a> 

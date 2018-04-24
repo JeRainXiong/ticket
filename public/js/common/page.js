@@ -14,7 +14,8 @@ var app = {
 	},
 	alertMsg: function(msg, callBack) {
 		$(".error_tip").show(), $(".error_tip").html(msg), setTimeout(function() {
-			$(".error_tip").hide(callBack)
+			$(".error_tip").hide(callBack);
+			$(".error_tip").html("");
 		}, 2e3)
 	},
 	queryStringToObject: function(str) {
@@ -210,13 +211,14 @@ function UserComponent() {
 		loginURL: '/login/dologin',
 		logoutURL: "/login/dologout",
 		registerURL: '/register/doregister',
-		makeOrderURL:'/buy/makeorder'
+		makeOrderURL:'/buy/makeorder',
+		uploadPhotoURL:'/account/uploadPhotoAjax'
 	}
 }
 UserComponent.prototype.login = function(username, password) {
 	$.ajax({
 		url: this.API.loginURL,
-		method: 'post',
+		type: 'post',
 		data: {
 			'username': username,
 			'password': password
@@ -241,7 +243,7 @@ UserComponent.prototype.isLogin = function() {
 UserComponent.prototype.logout = function() {
 	$.ajax({
 		url: this.API.logoutURL,
-		method: 'get',
+		type: 'get',
 		data: {},
 		success: function(data) {
 			var data = JSON.parse(data);
@@ -260,7 +262,7 @@ UserComponent.prototype.logout = function() {
 UserComponent.prototype.register = function(username, password, realename, idCard, tel) {
 	$.ajax({
 		url: this.API.registerURL,
-		method: 'post',
+		type: 'post',
 		data: {
 			'username': username,
 			'password': password,
@@ -292,7 +294,7 @@ UserComponent.prototype.preorder = function(concert_id, ticket_type_id) {
 UserComponent.prototype.makeOrder = function(concert_id,ticket_type_id,name,telphone,idCardNum,photo_path){
 		$.ajax({
 		url: this.API.makeOrderURL,
-		method: 'post',
+		type: 'post',
 		data: {
             'concert_id' :concert_id,
             'ticket_type_id':ticket_type_id ,
@@ -315,7 +317,31 @@ UserComponent.prototype.makeOrder = function(concert_id,ticket_type_id,name,telp
 		}
 	});
 }
-
+UserComponent.prototype.uploadPhoto = function(formdata,callBack){
+		$.ajax({
+		url: this.API.uploadPhotoURL,
+        type: 'POST',    
+        data: formdata,    
+        // dataType: 'JSON',    
+        cache: false,    
+        processData: false,    
+        contentType: false,
+		success: function(data) {
+			// console.log(data);
+			// alert(data);
+			// return;
+			var data = JSON.parse(data);
+			if (data.code == '2000') {
+				callBack(data);
+			} else {
+				app.alertMsg(data.msg);
+			}
+		},
+		error: function() {
+			app.alertMsg('上传文件失败')
+		}
+	});
+}
 
 function PageController(){
 
@@ -377,7 +403,7 @@ PageController.prototype.init = function() {
  	  	   	var idCardNum = $('#comfirm-qpfsList-container .shipment-idCardNum').val();
  	  	   	var concert_id = $('#comfirm-show-container').attr('concert_id');
  	  	   	var ticket_type_id = $('#comfirm-show-container').attr('ticket_type_id');
- 	  	   	var photo_path = '';
+ 	  	   	var photo_path = $('#photo_url').val();
  	  	   	_self.User.makeOrder(concert_id,ticket_type_id,name,telphone,idCardNum,photo_path);
  	  	 }),
  	  	 $("#js_search_btn").click(function(){
@@ -386,7 +412,33 @@ PageController.prototype.init = function() {
 			encodeURIComponent(key_word);
 			window.location.href = "/search/s?key_word=" + key_word;
 		}
- 	  	 });        
+ 	  	 }),
+ 	  	 $('#js_uploadPhoto').click(function(){
+			var animateimg = $("#photoPath").val(); //获取上传的图片名 带//  
+			if(animateimg == '') return app.alertMsg("请选择文件"); 
+		    var imgarr=animateimg.split('\\'); //分割  
+		    var myimg=imgarr[imgarr.length-1]; //去掉 // 获取图片名  
+		    var houzui = myimg.lastIndexOf('.'); //获取 . 出现的位置  
+		    var ext = myimg.substring(houzui, myimg.length).toUpperCase();  //切割 . 获取文件后缀  
+		      
+		    var file = $('#photoPath').get(0).files[0]; //获取上传的文件  
+		    var fileSize = file.size;           //获取上传的文件大小  
+		    var maxSize = 10485760;              //最大5MB  	 
+		    console.log(ext);
+		    // var user_id = $("#user_info").attr('user_id'); 	 	
+		    if(ext !='.PNG' && ext !='.JPG' && ext !='.JPEG' && ext !='.BMP'){  
+        	return void app.alertMsg("格式错误");
+		    }else if(parseInt(fileSize) >= parseInt(maxSize)){  
+		        return void app.alertMsg("大小超过10M");
+		    }else{ 
+				var data = new FormData($('#form_upload')[0]);
+				_self.User.uploadPhoto(data,function(data){
+					app.alertMsg("图片上传成功！"); 
+            	    $('#show_photo').attr('src',data['data']['photo_url']);  
+            	    $('#photo_url').val(data['data']['photo_url']);  					
+				});   
+		    }   	
+ 	  	 });    
 		
 
     $('#sessionPar-container .list-one').eq(0).click();

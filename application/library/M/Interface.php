@@ -3,7 +3,6 @@
 /**
  * 独立应用接口基类
  * 
- * @author soft456<soft456@gmail.com>
  */
 abstract class M_Interface extends M_Base {
 

@@ -10,7 +10,7 @@
         <ul class="container">
             <li><a href="/">首页<span>&gt;</span></a></li>
             <li><a href="/list?type=1">演唱会<span>&gt;</span></a></li>
-            <li class="active">【上海站】John Legend 2018年中国巡回演唱会</li>
+            <li class="active"><?php echo $concert['concert_name']?></li>
         </ul>
     </div>
     <div class="content-ticket">
@@ -18,7 +18,7 @@
             <div class="show-container">
                 <div class="show-ticket">
                     <div class="show-poster">
-                        <a href="https://img0.tking.cn/assets/img/s4hTERzJEX.jpg" target="_blank">
+                        <a href="<?php echo $concert['concert_img']?>" target="_blank">
                             
                             <div class="discount">
                                 <div class="ie9-discount-bg">
@@ -28,7 +28,7 @@
                                 </div>
                             </div>
                             
-                            <img class="" src="https://img0.tking.cn/assets/img/s4hTERzJEX.jpg" data-src="https://img0.tking.cn/assets/img/s4hTERzJEX.jpg" alt="【上海站】John Legend 2018年中国巡回演唱会">
+                            <img class="" src="<?php echo $concert['concert_img']?>" data-src="<?php echo $concert['concert_img']?>" alt="<?php echo $concert['concert_name']?>">
                         </a>
                         <div class="show-count">
                             <i class="icon icon-scan"></i>27530人浏览
@@ -37,7 +37,7 @@
                     </div>
                     <div class="show-calendar">
                         <div class="show-title">
-                                <span class="show-name">【上海站】John Legend 2018年中国巡回演唱会</span>
+                                <span class="show-name"><?php echo $concert['concert_name']?></span>
                                 <div class="show-tag-container">
                                     
                                     <!-- <div class="show-tag seat-selectable"></div> -->
@@ -48,7 +48,7 @@
                                 </div>
                             </div>
                             <div class="show-info">
-                                2018.03.08&nbsp;&nbsp;&nbsp;&nbsp;上海梅赛德斯奔驰文化中心（上海世博文化中心）
+                                <?php echo $concert['concert_time']?>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $concert['concert_addr']?>
                                 
                                 <span id="js-seatPic-btn" class="view-seats">
                                     <i class="icon icon-seat-icon"></i>

@@ -9,7 +9,9 @@ class BuyController extends Ext_Base {
 
     function init(){
         if(!$this->isLogin()){
-            $this->redirect(WEB_URL);
+            $this->showMessage("用户未登录");
+            $this->forward("Index","index");
+            return;
         }
         $this->_user_info = $_SESSION['user_info'];
     }
@@ -66,17 +68,10 @@ class BuyController extends Ext_Base {
         $tel = $this->getPost('tel');
         $id_card = $this->getPost('id_card');
         $photo_path = $this->getPost('photo_path','');
-        if(!($concert_id&&$ticket_type_id&& $name&&$tel&&$id_card)){
+        if(!($concert_id&&$ticket_type_id&& $name&&$tel&&$id_card&&$photo_path)){
             return $this->error("参数不全",2001,[]);
         }
-        //不同票价
-        $param=[
-            'concert_id' =>$concert_id,
-            'ticket_type_id'=>$ticket_type_id ,
-            'name'=>$name,
-            'tel'=>$tel,
-            'id_card'=>$id_card
-        ];
+
         //判断有无此票
         $ticket_type = (new TicketModel())->getTicketTypeById($ticket_type_id);
         if($ticket_type == false){
@@ -216,6 +211,7 @@ class BuyController extends Ext_Base {
             'concert_id' => $order['concert_id'],
             'concert_name' => $concert['concert_name'],
             'concert_time' => $concert['concert_time'],
+            'concert_addr' => $concert['concert_addr'],
             'user_id' =>$order['user_id'],
             'id_card' => $order['id_card'],
             'realname' => $order['realname'],

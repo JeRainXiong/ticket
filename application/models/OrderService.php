@@ -28,7 +28,7 @@ class OrderServiceModel{
                 'concert_id' => $order_detail['concert_id'],
                 'seat_static_id' => $seat_rand['seat_static_id'],
                 'seat_level' => $seat_rand['seat_level'],
-                'seat_state' => $seat_rand['seat_level']
+                'seat_state' => 1
             ];
             $r = $ticketModel->insert($seat,'seat');
             if(empty($r)) return false;
@@ -105,7 +105,8 @@ class OrderServiceModel{
              'fields' => "*",     //字段列表
             'where' => $where,
             'page' => $page,       //第几页
-            'perpage' => $perpage        //每页多少条            
+            'perpage' => $perpage,        //每页多少条
+            'order'=>'order_id DESC'         
         ];        
         return (new OrderModel())->find($opt,$table);
 

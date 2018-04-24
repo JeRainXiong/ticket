@@ -42,7 +42,8 @@
                     <span class="mobile"><?php echo $user_info['username'];?></span>
                     <ul class="user-menu">
                         <i class="icon icon-site-dropdown"></i>
-                        <li><a href="/account/order">我的订单</a></li>                    
+                        <li><a href="/account/order">我的订单</a></li>
+                        <li><a href="#">个人信息</a></li>                         
                         <li id="js_open_logout">退出登录</li>
                     </ul>
                     </div>

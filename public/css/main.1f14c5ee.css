@@ -2697,7 +2697,7 @@ img {
 }
 
 .main-logo {
-	width: 136px;
+	width: 72px;/*136*/
 	height: 72px;
 	display: inline-block;
 	vertical-align: middle

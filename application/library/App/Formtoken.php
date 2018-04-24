@@ -3,7 +3,6 @@
 /**
  *  csrf攻击防范类
  * 
- * @author soft456<soft456@gmail.com>
  */
 class App_Formtoken {
 

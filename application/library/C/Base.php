@@ -3,7 +3,6 @@
 /**
  *  控制器框架层基类
  * 
- * @author soft456<soft456@gmail.com>
  */
 class C_Base extends Yaf_Controller_Abstract {
 

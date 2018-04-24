@@ -66,8 +66,13 @@
                 身份证：<input class="shipment-idCardNum placeholder" type="text" placeholder="演出需凭身份证购买" name="confirm.idCardNum">
             </ul>
             <ul class="box-item-right">
-                照  片：&nbsp;&nbsp;<input class="photoPath" type="file"  name="confirm.photo"  accept="image/png, image/jpeg, image/jpg">
-            </ul>            
+                <form id='form_upload'>照  片：&nbsp;&nbsp;<input id="photoPath" type="file"  name="confirm.photo"  accept="image/png, image/jpeg, image/jpg"><a class="order_btn_detail" id="js_uploadPhoto" style="display: inline">上传</a></form>
+            </ul>   
+           
+                <div><img id='show_photo' src="<?php echo $user_info['photo_path'] ?>" width="60%"></div>  
+                <div><input value="<?php echo $user_info['photo_path'] ?>" id="photo_url" style="display:none;"></div>  
+            
+    
         </div>       
         <div id="comfirm-qpfsListOnsite-container" class="box-item mt-20">
 

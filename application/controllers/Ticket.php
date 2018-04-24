@@ -6,7 +6,9 @@ class TicketController extends Ext_Base {
 
     function init(){
         if(!$this->isLogin()){
-            $this->redirect(WEB_URL);
+            $this->showMessage("用户未登录");
+            $this->forward("Index","index");
+            return;
         }
         $this->_user_info = $_SESSION['user_info'];
     }
@@ -34,14 +36,14 @@ class TicketController extends Ext_Base {
         $png_string = file_get_contents($ticket['qr_code']);
         $png_base64 = base64_encode($png_string);
         // getPost('order_id');
-
+        $concert = (new ConcertModel)->getConcertById($ticket['concert_id']);
 
         //出票页面,根据订单号和票号，打印
         
         $this->getView()->assign("title", "出票");
         $this->getView()->assign("png_base64", $png_base64);
         $this->getView()->assign("ticket", $ticket);
-
+        $this->getView()->assign("concert", $concert);
 
     }
 }

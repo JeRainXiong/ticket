@@ -2,8 +2,6 @@
 
 /**
  *  yafext 工具类
- * 
- * @author soft456<soft456@gmail.com>
  */
 class E_Tools {
 
