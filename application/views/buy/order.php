@@ -12,7 +12,7 @@
       <div class="comfirm-aside-inner">
         <div id="comfirm-show-container" concert_id = '<?php echo $concert_id ?>' ticket_type_id = '<?php echo $ticket_type_id ?>'>
     <div class="ticket-main">
-        <a href="/content/5a4c96fc908c385cd14ddba5" target="_blank"><img src="https://img0.tking.cn/assets/img/s4hTERzJEX.jpg" alt="【上海站】John Legend 2018年中国巡回演唱会" width="85" height="109"></a>
+        <a href="/content/c?concert=<?php echo $concert['concert_id']?>" target="_blank"><img src="<?php echo $concert['concert_img']?>" alt="<?php echo $concert['concert_name']?>" width="85" height="109"></a>
         <div class="ticket-show-desc">
             <span style="color: #323232;"><?php echo $concert_name?></span>
             

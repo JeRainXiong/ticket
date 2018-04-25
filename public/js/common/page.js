@@ -1,11 +1,4 @@
 var app = {
-	channelKey: "session_channel",
-	cellphoneKey: "user_cellphone",
-	sessionKey: "oss",
-	oauthKey: "tt_oauth",
-	ologinKey: "tt_ologin",
-	ologinOID: "o_login_OID",
-	uuid_session: "uid_session",
 	mask: function() {
 		$("div.modal-loading").show()
 	},
@@ -58,6 +51,7 @@ var app = {
 		}
 		var chrsz = 8;
 		return function(binarray) {
+			var hexcase = 0;
 			for (var hex_tab = hexcase ? "0123456789ABCDEF" : "0123456789abcdef", str = "", i = 0; i < 4 * binarray.length; i++) str += hex_tab.charAt(binarray[i >> 2] >> i % 4 * 8 + 4 & 15) + hex_tab.charAt(binarray[i >> 2] >> i % 4 * 8 & 15);
 			return str
 		}(function(x, len) {
@@ -118,92 +112,7 @@ var app = {
 		}
 		return string
 	},
-	encryptLoginCode: function(uuid, timestamp) {
-		return uuid + "_:_" + timestamp
-	},
-	isEmptyOrUndefined: function(value) {
-		return "" == (value += "") || null == value || void 0 == value || "undefined" == value || "null" == value
-	},
-	localSave: function(key, value, options) {
-		app.isEmptyOrUndefined(key) || app.isEmptyOrUndefined(value) || (app.supportLocalStorage() ? (localStorage.setItem(key, value), navigator.cookieEnabled && $.removeCookie(key)) : navigator.cookieEnabled ? $.cookie(key, value, $.extend({
-			path: "/"
-		}, options)) : alert("设备cookie功能被禁用,请启用!"))
-	},
-	cookieSave: function(key, value, options) {
-		app.isEmptyOrUndefined(key) || app.isEmptyOrUndefined(value) || !navigator.cookieEnabled ? alert("设备cookie功能被禁用,请启用!") : $.cookie(key, value, $.extend({
-			path: "/"
-		}, options))
-	},
-	supportLocalStorage: function() {
-		if (app.localStorageIsSupported) return app.localStorageIsSupported;
-		try {
-			return localStorage.setItem("lstorage_test", "ok"), localStorage.removeItem("lstorage_test"), app.localStorageIsSupported = !0, !0
-		} catch (error) {
-			return console.log("不支持本地存储!"), app.localStorageIsSupported = !1, !1
-		}
-	},
-	localRemove: function(key) {
-		app.isEmptyOrUndefined(key) || (app.supportLocalStorage() ? localStorage.removeItem(key) : navigator.cookieEnabled ? $.removeCookie(key) : alert("设备cookie功能被禁用,请启用!"))
-	},
-	localGet: function(key) {
-		if (!app.isEmptyOrUndefined(key)) return localStorage.getItem(key) || $.cookie(key)
-	},
-	dequery: function(url) {
-		var param = {};
-		if (url = url.substr(url.indexOf("?") + 1)) {
-			url = url.split("&");
-			for (var i = 0, len = url.length; i < len; i++) {
-				var arr = url[i].split("=");
-				param[arr[0]] = decodeURIComponent(arr[1])
-			}
-		}
-		return param
-	},
-	getCookieDomain: function() {
-		return location.host.indexOf("tking") >= 0 ? ".tking.cn" : location.host.indexOf("qa") > -1 ? ".qa.ticketdashi.com" : location.host.indexOf("ticketdashi") > -1 ? ".ticketdashi.com" : location.host.indexOf("localhost") > -1 ? "localhost" : location.host
-	},
-	fetch: function(options) {
-		var _self = this;
-		return $.ajax({
-			type: options.type,
-			url: options.url,
-			data: options.data,
-			dataType: options.dataType,
-			beforeSend: function(req) {
-				req.setRequestHeader("tsessionid", app.getSessionId())
-			},
-			success: function(data, status, xhr) {
-				var headers = xhr.getResponseHeader;
-				headers("saveDate") && (app.localGet("tt_oauth") || headers("saveDate") != app.localGet("tt_oauth")) && app.localSave("tt_oauth", headers("saveDate")), headers("loginDate") && (app.localGet("tt_ologin") || headers("loginDate") != app.localGet("tt_ologin")) && app.localSave("tt_ologin", headers("loginDate")), headers("sms_token") && (app.sms_token = headers("sms_token")), 1005 == data.statusCode ? options.authorizationLogin ? ($("#loading_box").hide(), (new BaseController).tryGetUserSession(function() {
-					! function(options) {
-						_self.fetch(options)
-					}(options)
-				}, new LoginComponent(function() {
-					! function(options) {
-						_self.fetch(options)
-					}(options)
-				}))) : (new BaseController).tryGetUserSession(function() {
-					! function(options) {
-						_self.fetch(options)
-					}(options)
-				}, {
-					trySessionFailureDone: options.trySessionFailureDone
-				}) : options.success && "function" == typeof options.success && options.success(data, status, xhr)
-			},
-			error: function(XMLHttpRequest, textStatus, errorThrown) {
-				options.error && "function" == typeof options.error && options.error(XMLHttpRequest, textStatus)
-			}
-		}).promise()
-	},
-	newGuid: function() {
-		for (var guid = "", i = 1; i <= 32; i++) {
-			guid += Math.floor(16 * Math.random()).toString(16), 8 != i && 12 != i && 16 != i && 20 != i || (guid += "-")
-		}
-		return guid
-	},
-	getSessionId: function() {
-		return window.sessionStorage && !window.sessionStorage.sessionOId ? window.sessionStorage.sessionOId = app.newGuid() + "pc" + (new Date).getTime() : window.sessionStorage || !window.localStorage || window.localStorage.sessionOId ? window.sessionStorage || window.localStorage || (window.sessionOId = app.newGuid() + "pc" + (new Date).getTime()) : window.localStorage.sessionOId = app.newGuid() + "pc" + (new Date).getTime(), window.sessionStorage.sessionOId || window.localStorage.sessionOId || window.sessionOId
-	}
+
 };
 
 function UserComponent() {
