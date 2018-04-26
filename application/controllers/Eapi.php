@@ -1,5 +1,5 @@
 <?php
-class AccountController extends Ext_Base {
+class EapiController extends Ext_Base {
 
      /**
      * 桌面端预留接口
