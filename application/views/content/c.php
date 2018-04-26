@@ -281,36 +281,8 @@
         </div>
     </div>
     <div class="error_tip"></div>
-    <div class="seat-component seat-dl" style="display: none">
-        <div class="modal-backdrop"></div>
-        <div class="modal-dialog">
-             <div class="">
-                <div>
-                    <div class="close_icon icon icon-modal-close">
-                        <!--<img src="images/close-c651bdac8f.png" id="js_sitimg">-->
-                    </div> 
-                    <ul>
-                        <img src="/images/seatdownload-876cc0f19a.png" id="js_sitimg">
-                    </ul>
-                </div>
-            </div>
-        </div>       
-    </div>
-    <div class="seat-component seat-pic" style="display: none">
-        <div class="modal-backdrop" style="z-index: 0"></div>
-        <div class="modal-dialog">
-            <div style="max-height:500px;max-width:1000px;">
-                <div style="max-height:500px;max-width:1000px;overflow:auto;">
-                    <div class="close_icon icon icon-modal-close" style="position:absolute;top:20px;right:20px">
-                        
-                    </div> 
-                    <ul style="border-radius:10px;">
-                        <img src="https://img0.tking.cn/assets/img/2DB3Djmd5h.jpg" id="js_sitpicimg" width="100%">
-                    </ul>
-                </div>
-            </div>
-        </div>   
-    </div>
+
+
     </div>
     <?php include VIEW_PATH . "/common/login.php" ?>
 

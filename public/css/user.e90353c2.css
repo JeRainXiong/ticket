@@ -1053,7 +1053,7 @@ p.coupon_title {
 .modal-loading-content {
 	width: 66px;
 	height: 66px;
-	background: url(../images/loading-97f26608c2.gif) no-repeat;
+	/*background: url(../images/loading.gif) no-repeat;*/
 	background-size: 66px;
 	position: fixed;
 	top: 50%;
@@ -1733,7 +1733,7 @@ input::-ms-clear, input::-ms-reveal {
 	border: 1px solid #eaeaea;
 	width: 278px;
 	height: 330px;
-	background-image: url(../images/wxzf_lfet-51ef74d6cb.png);
+	/*background-image: url(../images/wxzf_lfet-51ef74d6cb.png);*/
 	background-position: center bottom;
 	background-repeat: no-repeat
 }
@@ -1764,7 +1764,7 @@ input::-ms-clear, input::-ms-reveal {
 .modal-loading-content {
 	width: 120px;
 	height: 120px;
-	background: url(../images/loading-97f26608c2.gif) no-repeat;
+	/*background: url(../images/loading.gif) no-repeat;*/
 	background-size: 120px;
 	position: fixed;
 	top: 50%;

@@ -9,7 +9,7 @@ class ConcertModel extends M_Base {
     protected $_db = 'tkdb';
     //表名
     protected $_table = 'concert';
-    protected $pk = 'concert_id';
+    protected $_pk = 'concert_id';
 
 
 

@@ -37,6 +37,8 @@ class ContentController extends Ext_Base {
         $this->getView()->assign('concert',$concert);
         $this->getView()->assign('concert_time',$concert['concert_time']);
         $this->getView()->assign('ticket_type_list',$ticket_type_list);
+        // print_r($concert);
+        // print_r($ticket_type_list);
 
     }
 

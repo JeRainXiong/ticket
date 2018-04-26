@@ -36,6 +36,12 @@ class Ext_Base extends C_Base {
     /**
      * 失败提示信息
      * @return String
+     * @example 
+     * {
+        "code":"2005",
+        "msg":"操作失败",
+        "data":{}
+        }
      */
     protected function error($message, $code = 0, array $data = [])
     {
