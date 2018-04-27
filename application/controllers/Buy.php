@@ -151,7 +151,7 @@ class BuyController extends Ext_Base {
         $_SESSION['order_list'][$order_id] = $order;
    
 
-        $pay_url = '/buy/dopay?order_id='.$order['order_id'].'&token='.$order['order_token'];
+        $pay_url = 'http://'.WEB_URL.'/buy/dopay?order_id='.$order['order_id'].'&token='.$order['order_token'];
         $this->getView()->assign("user_info", $this->_user_info);
         $this->getView()->assign("title", '付款');
         $this->getView()->assign("total_money",$order['amount']);

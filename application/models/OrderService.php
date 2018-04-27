@@ -42,7 +42,7 @@ class OrderServiceModel{
         if(empty($r)) return false;
 
         //创建线程15分钟删除 并恢复信息
-        return ((new OrderModel())->insertOrder($order_detail));
+        return intval(((new OrderModel())->insertOrder($order_detail)));
     }
 /**
  * 获取订单信息

@@ -23,10 +23,10 @@
                 <div style="width:667px;height: 4px;background: #eee;position: relative;left: 114px;top: 65px; z-index: 0;"> </div>
                 <ul class="orderDet_bar clearfix">
                   <li class="p_r_135 od_det_green ">待付<div class="circle_bot od_det_tag"></div></li>
-                  <li class="p_r_135 od_det_green ">下单<div class="circle_bot od_det_tag"><span class="active-line"></span></div></li>
-                  <li class="p_r_135 od_det_green ">接单<div class="circle_bot od_det_tag"><span class="active-line"></span></div></li>
-                  <li class="p_r_135 od_det_green ">出票<div class="circle_bot od_det_tag"><span class="active-line"></span></div></li>
-                  <li class = 'od_det_green'>完成<div class="circle_bot od_det_tag"><span class="active-line"></span></div></li>
+                  <li class="p_r_135 <?php if($order['order_state']==1)echo "od_det_green"?>">下单<div class="circle_bot od_det_tag"><span class="active-line"></span></div></li>
+                  <li class="p_r_135 <?php if($order['order_state']==1)echo "od_det_green"?>">接单<div class="circle_bot od_det_tag"><span class="active-line"></span></div></li>
+                  <li class="p_r_135 <?php if($order['order_state']==1)echo "od_det_green"?>">出票<div class="circle_bot od_det_tag"><span class="active-line"></span></div></li>
+                  <li class = '<?php if($order['order_state']==1)echo "od_det_green"?>'>完成<div class="circle_bot od_det_tag"><span class="active-line"></span></div></li>
                 </ul>
                 
             </div>

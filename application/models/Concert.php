@@ -18,14 +18,14 @@ class ConcertModel extends M_Base {
      *  获取订单列表，
      *  @return array $user_id
      */
-    function getConcertList(){
+    function getConcertList($inPage = 1 ,$inOffset = 8){
         $whereArray = array();
         $opt = array(
             'fields' => "*",     //字段列表
             'where' => $whereArray,  //where条件
-            //'concert' => 'add_time ASC',  // 字符串类修  排序字符串 ： add_time DESC,user_id ASC
-            //'page' => $inPage,       //第几页
-            //'perpage' => $inOffset        //每页多少条
+            'concert' => 'add_time ASC',  // 字符串类修  排序字符串 ： add_time DESC,user_id ASC
+            'page' => $inPage,       //第几页
+            'perpage' => $inOffset        //每页多少条
         );
         $table = $this->_table;
         $result = $this->find($opt,$table);

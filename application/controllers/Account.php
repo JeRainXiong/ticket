@@ -116,6 +116,7 @@ class AccountController extends Ext_Base {
         $this->getView()->assign("user_info", $this->_user_info);
         $this->getView()->assign("order", $order);
         $this->getView()->assign('state',$this->_state);
+        // print_r($order);
     } 
     function updateSession(){
         $_SESSION['user_info'] = (new UserDBModel)->getUserById($_SESSION['user_info']['user_id']);
