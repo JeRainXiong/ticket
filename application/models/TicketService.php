@@ -41,14 +41,17 @@ class TicketServiceModel{
     //采用md5判断数据是否完整
     function getCheckCode($ticket = array()){
         if(empty($ticket))return '';
-        $str = $ticket['order_id'].
+        $str = /*$ticket['order_id'].
                 $ticket['seat_id'].
                 $ticket['ticket_type_id'].
                 $ticket['concert_id'].
-                $ticket['user_id'].
-                $ticket['id_card'].
+                $ticket['user_id'].*/
                 $ticket['realname'].
-                $ticket['creat_time'];
+                $ticket['id_card'].
+                $ticket['seat_id'].
+                $ticket['concert_name'].
+                $ticket['photo_path']
+                ;
         return md5($str);
     }
 
@@ -69,7 +72,15 @@ class TicketServiceModel{
         unset($ticket['check_code']);
         unset($ticket['qr_code']);
         unset($ticket['ticket_token']);
-
+        //以下测试
+        unset($ticket['ticket_type_id']);
+        unset($ticket['order_id']);
+        unset($ticket['concert_id']);
+        unset($ticket['concert_time']);
+        unset($ticket['concert_addr']);
+        unset($ticket['creat_time']);
+        unset($ticket['user_id']);
+        unset($ticket['ticket_id']);
 
         $value = json_encode($ticket);                  //二维码内容  
           

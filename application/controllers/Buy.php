@@ -47,6 +47,7 @@ class BuyController extends Ext_Base {
         $ticket_money = $ticket_type['unit_price'];
         $total_money = number_format($ticket_money,2);
 
+        // var_dump($this->_user_info);
         $this->getView()->assign("concert",$concert);
         $this->getView()->assign("title", "订单填写");
         $this->getView()->assign("concert_name", $concert['concert_name']);
@@ -151,7 +152,7 @@ class BuyController extends Ext_Base {
         $_SESSION['order_list'][$order_id] = $order;
    
 
-        $pay_url = 'http://'.WEB_URL.'/buy/dopay?order_id='.$order['order_id'].'&token='.$order['order_token'];
+        $pay_url = WEB_URL.'/buy/dopay?order_id='.$order['order_id'].'&token='.$order['order_token'];
         $this->getView()->assign("user_info", $this->_user_info);
         $this->getView()->assign("title", '付款');
         $this->getView()->assign("total_money",$order['amount']);
@@ -165,7 +166,6 @@ class BuyController extends Ext_Base {
         //付款页面
         //展示订单
         //$this->getView()->assign("title", "网络购票系统");
-
 
     }
     public function doPayAction(){

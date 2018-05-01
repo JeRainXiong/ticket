@@ -69,7 +69,7 @@
                 <form id='form_upload'>照  片：&nbsp;&nbsp;<input id="photoPath" type="file"  name="confirm.photo"  accept="image/png, image/jpeg, image/jpg"><a class="order_btn_detail" id="js_uploadPhoto" style="display: inline">上传</a></form>
             </ul>   
            
-                <div style="position: absolute;right:0;top:0"><img id='show_photo' src="<?php echo $user_info['photo_path'] ?>" width="210px" height = "290px"></div>  
+                <div style="position: absolute;right:0;top:0"><img id='show_photo' src=" <?php echo $user_info['photo_path'] ?>" width="210px" height = "290px"></div>  
                 <div><input value="<?php echo $user_info['photo_path'] ?>" id="photo_url" style="display:none;"></div>  
             
     

@@ -23,7 +23,8 @@ class RegisterController extends Ext_Base{
             'password'=>$password,
             'user_realname'=>$realname,
             'user_id_card'=>$idCard,   
-            'tel'=>$tel      
+            'tel'=>$tel ,
+            'photo_path'=>""     
         ];
         if($md->getUserByUsername($username))
         {
