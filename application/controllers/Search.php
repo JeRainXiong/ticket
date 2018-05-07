@@ -1,5 +1,5 @@
 <?php
-//演唱会内容页面 控制器
+//搜索 控制器
 class SearchController extends Ext_Base {
 
     function init(){
@@ -8,6 +8,7 @@ class SearchController extends Ext_Base {
     public function indexAction(){
           $this->redirect(WEB_URL);
     }
+
     public function sAction(){
         $key_word = $this->getQuery('key_word','');
         $page = intval($this->getQuery('page',1));
@@ -29,9 +30,4 @@ class SearchController extends Ext_Base {
         //print_r($concert_list);
 
     }
-
-
-
-
-
 }

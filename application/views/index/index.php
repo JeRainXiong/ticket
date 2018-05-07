@@ -19,9 +19,6 @@
             <div id="hot-section" class="page-section left-part">
                 <div class="page-section-header">
                     <div class="section-name">近期热门</div>
-                    <div class="section-operation">
-                        <a href="#" target="_blank">查看更多<span class="right-arrow"></span></a>
-                    </div>
                 </div>
                 <div class="section-shows">
                     <?php foreach ($concert_list as $concert) {
@@ -46,7 +43,7 @@
                 <div class="page-section-header">
                     <div class="section-name">人气TOP 5</div>
                     <div class="section-operation">
-                        <a href="/list?sorting=weight&amp;seq=desc" target="_blank">查看更多<span class="right-arrow"></span></a>
+                        <a href="/list/l?sorting=time&seq=desc" target="_blank">查看更多<span class="right-arrow"></span></a>
                     </div>
                 </div>
                 <div class="section-shows">

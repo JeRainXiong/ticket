@@ -26,5 +26,21 @@ class SearchServiceModel{
         ];
         return $md->find($opt,$table);
     }
-
+/**
+ * return array
+ */   
+    function getConcertList($sorting = "concert_time",$seq = "DESC",$page = 1,$perpage =10){
+        $md = new ConcertModel();
+        $table = 'concert';
+        $whereArray = [
+        ];
+        $opt = [
+             'fields' => "*",     //字段列表
+            'where' => $whereArray,
+            'page' => $page,       //第几页
+            'perpage' => $perpage,        //每页多少条 
+            'order'=>$sorting ." " .$seq           
+        ];
+        return $md->find($opt,$table);
+    }
 }
