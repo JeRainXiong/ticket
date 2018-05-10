@@ -33,7 +33,7 @@ class Bootstrap extends Yaf_Bootstrap_Abstract {
             error_reporting(-1);
             ini_set('display_errors', 'On');
         } else {
-            error_reporting(0);
+            error_reporting(-1);
             ini_set('display_errors', 'Off');
         }
         // set_error_handler(array('E_Exception_Error', 'errorHandler'));
