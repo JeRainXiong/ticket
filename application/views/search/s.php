@@ -1,9 +1,9 @@
-<?php include VIEW_PATH . "/common/head.php" ?>
+<?php include VIEW_PATH . "/common/head.php";?>
  
 </head>
 
 <body>
-<?php include VIEW_PATH . "/common/nav.php" ?>    
+<?php include VIEW_PATH . "/common/nav.php";?>    
 
     <div class="list-page-content" style="background:#fff;">
         <div class="container clearfix clear-aside-border">
@@ -66,9 +66,6 @@
         } else {
 ?>
 
-            <div style="display: inline-block;padding-left:100%;">
-            </div>
-            
             <div class="list_row" style="display:block;padding:0 0 100px 0" > 
                 <div style="text-align: center;padding: 10px 0;font-size: 16px;color: #010000"><div class="icon icon-no-data"></div></div> 
             </div>
@@ -76,7 +73,8 @@
 
              }
 ?>
-            
+             <div style="display: inline-block;padding-left:100%;">
+            </div>
             <div class="page-component">
                 <ul class="pagination-sm pagination fr">
                     
