@@ -1,4 +1,4 @@
-<?php include VIEW_PATH . "/common/head.php" ?>
+<?php include VIEW_PATH . "/common/head.php";?>
 </head>
 <body>
 

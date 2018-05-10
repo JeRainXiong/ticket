@@ -354,7 +354,12 @@ PageController.prototype.init = function() {
 	if (_self.User.isLogin()){
 		$('#login_info').hide(),$('#user_info').show();
 	}
-
+	$('.show_tab li').click(function(){
+		$('.show_tab li').removeClass("active");
+		$(this).addClass("active");
+		var panel = $(this).attr("data");
+		$("#"+panel).css("display","block").siblings().css("display","none");
+	});
 
 };
 

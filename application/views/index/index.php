@@ -1,18 +1,18 @@
-<?php include VIEW_PATH . "/common/head.php" ?>
+<?php include VIEW_PATH . "/common/head.php";?>
 
 </head>
 
   <body>
-<?php include VIEW_PATH . "/common/nav.php" ?>    
+<?php include VIEW_PATH . "/common/nav.php";?>    
 
     <!-- 频道区一 -->
     <div class="navbar-channel" id="channel">
-        <div class="container">
+<!--         <div class="container">
             <ul>
                 <li class="active"><a href="/">首页<div class="border-bottom"></div></a></li>
                 <li style="display: inline-block;padding-left:100%;"></li>
             </ul>
-        </div>
+        </div> -->
     </div>
     <div class="homepage-body" >
         <div class="page-section-row">
@@ -149,7 +149,7 @@
 
     </div>
    
-<?php include VIEW_PATH . "/common/login.php" ?>
+<?php include VIEW_PATH . "/common/login.php";?>
 
 <script type="text/javascript" src="js/common/page.js"></script>
 </body>

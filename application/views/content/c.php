@@ -1,9 +1,9 @@
-<?php include VIEW_PATH . "/common/head.php" ?>
+<?php include VIEW_PATH . "/common/head.php";?>
  
 </head>
 
   <body>
-<?php include VIEW_PATH . "/common/nav.php" ?>    
+<?php include VIEW_PATH . "/common/nav.php";?>    
 
 <div class="show-detail-page" concert_id = '<?php echo $concert_id?>'>
     <div class="breadcrumb">
@@ -194,15 +194,15 @@
     <div class="content-intro normal">
         <ul class="show_tab">
             <li class="active" data="intro_panel">
-                <a href="javascript:void(0);">演出介绍</a>
+                <a href="javascript:;" onclick="">演出介绍</a>
                 <div class="border-line"></div>
             </li>
             <li data="flow_panel">
-                <a href="javascript:void(0);">购买流程</a>
+                <a href="javascript:;">购买流程</a>
                 <div class="border-line"></div>
             </li>
             <li data="tips_panel">
-                <a href="javascript:void(0);">购票提示</a>
+                <a href="javascript:;">购票提示</a>
                 <div class="border-line"></div>
             </li>
 	    </ul>
@@ -220,8 +220,28 @@
 	                        </div>
 	                    </div>
 	                </div>
-	                
+                    <div class="intro-main" id="flow_panel" style="display: none">
+                        <div class="intro-main-row">
+                            <a name="flow_panel"></a>
+                            <ul class="" style="font-size: 17px"></ul>
+                            <ul class="" style="font-size: 17px;font">
+                                <li>网上订购流程</li>
+                                <br>
+                                <li class=""><p>选择演出→确认订单信息→选择支付方式→完成购票</p></li>
 
+                            </ul>
+                        </div>
+                    </div>	                
+                    <div class="intro-main" id="tips_panel" style="display: none">
+                        <div class="intro-main-row">
+                            <a name="tips_panel"></a>
+                            <ul class="intro-main-row-title">购票提示</ul>
+                            <ul class="intro-main-row-txt text-left">
+                                <p>1、演出详情仅供参考，具体信息以主办方公布信息及现场为准，请准时到场以免错过演出。</p>
+                                <p>2、本票务网站的仅用于模拟购票流程，不提供实际演唱会门票!</p>
+                            </ul>
+                        </div>
+                    </div>
 	            </div>
 	            <div class="right-content">
                     <div class="appointment-title">相关演出</div>
