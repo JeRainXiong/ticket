@@ -5,7 +5,7 @@ class EapiController extends Ext_Base {
      * 桌面端预留接口
      */
     public function PhotoAjaxAction(){
-        $folder = $this->getQuery("folder");
+        $folder = $this->getPost("folder");
         if(empty($folder))return $this->error('没有文件名');
         $file_input = 'photoaa';
         // var_dump($_FILES);exit;
