@@ -79,7 +79,7 @@ class TicketServiceModel{
         unset($ticket['concert_time']);
         unset($ticket['concert_addr']);
         unset($ticket['creat_time']);
-        unset($ticket['user_id']);
+        //unset($ticket['user_id']);
         unset($ticket['ticket_id']);
 
         $value = json_encode($ticket);                  //二维码内容  
